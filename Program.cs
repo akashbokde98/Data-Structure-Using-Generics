@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LinkedList
 {
@@ -6,7 +7,10 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To Data Structure Linked List Program");
+            List listobj = new List();
+            listobj.Add(70);
+            listobj.Add(30);
+            listobj.Add(56);
         }
     }
 }
