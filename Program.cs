@@ -8,9 +8,10 @@ namespace LinkedList
         static void Main(string[] args)
         {
             List listobj = new List();
-            listobj.Add(70);
-            listobj.Add(30);
+
             listobj.Add(56);
+            listobj.Append(30);
+            listobj.Append(70);
         }
     }
 }
