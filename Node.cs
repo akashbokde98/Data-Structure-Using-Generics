@@ -8,7 +8,6 @@ namespace LinkedList
     {
         public int data;
         public Node next;
-
         public Node(int input)
         {
             data = input;
