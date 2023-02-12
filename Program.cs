@@ -10,8 +10,8 @@ namespace LinkedList
             List listobj = new List();
 
             listobj.Add(56);
-            listobj.Append(30);
-            listobj.Append(70);
+            listobj.Add(70);
+            listobj.Insert(1, 30);
         }
     }
 }
