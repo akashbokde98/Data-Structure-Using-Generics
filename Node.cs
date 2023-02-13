@@ -29,29 +29,18 @@ namespace LinkedList
             head = n;
             return true;
         }
-        public int Pop(int ind)
+        public bool Search(int data)
         {
-            int obj;
-            if (ind == 0)
+            if (head == null)
+                throw new NullReferenceException("empty List");
+            Node t = head;
+            while (t != null)
             {
-                obj = head.data;
-                head = head.next;
-                return obj;
-            }
-            Node t = head, pre = null;
-            while (ind > 0 && t != null)
-            {
-                ind--;
-                pre = t;
+                if (t.data.Equals(data))
+                    return true;
                 t = t.next;
             }
-            if (ind == 0)
-            {
-                pre.next = t.next;
-                obj = t.data;
-                return obj;
-            }
-            throw new NullReferenceException("index is not range");
+            return false;
         }
     }
 }
