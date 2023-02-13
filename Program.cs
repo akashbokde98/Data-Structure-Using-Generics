@@ -12,8 +12,10 @@ namespace LinkedList
             listobj.Add(70);
             listobj.Add(30);
             listobj.Add(56);
-            listobj.Search(30);
             listobj.Insert(2, 40);
+            listobj.Search(40);
+            listobj.Pop(2);
+            Console.WriteLine("Linked List Size is-" + listobj.Size());
         }
     }
 }
