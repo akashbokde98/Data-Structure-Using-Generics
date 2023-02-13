@@ -13,6 +13,7 @@ namespace LinkedList
             listobj.Add(30);
             listobj.Add(56);
             listobj.Search(30);
+            listobj.Insert(2, 40);
         }
     }
 }
