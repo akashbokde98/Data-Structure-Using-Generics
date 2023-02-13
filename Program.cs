@@ -7,15 +7,16 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            List listobj = new List();
+           SortList<int> listObj = new SortList<int>();
 
-            listobj.Add(70);
-            listobj.Add(30);
-            listobj.Add(56);
-            listobj.Insert(2, 40);
-            listobj.Search(40);
-            listobj.Pop(2);
-            Console.WriteLine("Linked List Size is-" + listobj.Size());
+            listObj.AddNode(70);
+            listObj.AddNode(40);
+            listObj.AddNode(30);
+            listObj.AddNode(56);
+
+            listObj.sortList();
+            listObj.display();
+
         }
     }
 }

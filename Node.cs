@@ -4,105 +4,78 @@ using System.Text;
 
 namespace LinkedList
 {
-    public class Node
+    public class Node<T>
     {
-        public int data;
-        public Node next;
+        public T data;
+        public Node<T> next;
 
-        public Node(int input)
+        public Node(T value)
         {
-            data = input;
+            data = value;
+            next = null;
         }
     }
-    internal class List
+    internal class SortList<T>where T : IComparable<T>
     {
-        private Node head;
-        public bool Add(int data)
+        private Node<T> head = null;
+        public Node<T> tail = null;
+        public bool AddNode(T data)
         {
-            Node n = new Node(data);
+            Node<T> newNode = new Node<T>(data);
             if (head == null)
             {
-                head = n;
+                head = newNode;
+                tail = newNode;
                 return true;
             }
-            n.next = head;
-            head = n;
+            tail.next = newNode;  
+            tail = newNode;
             return true;
         }
-        public bool Insert(int ind, int data)
+        public void sortList()
         {
-            Node n = new Node(data);
-            if (ind == 0)
-            {
-                n.next = head;
-                head = n;
-                return true;
-            }
-            Node t = head, pre = null;
-            while (ind > 0 && t != null)// 2 
-            {
-                ind--;//0
-                pre = t;// 
-                t = t.next;
-            }
-            if (ind == 0)
-            {
-                pre.next = n;
-                n.next = t;
-                return true;
-            }
-            throw new NullReferenceException("index is not in range");
-        }
-        public bool Search(int data)
-        {
-            if (head == null)
-                throw new NullReferenceException("empty List");
-            Node t = head;
-            while (t != null)
-            {
-                if (t.data.Equals(data))
-                    return true;
-                t = t.next;
-            }
-            return false;
-        }
-        public int Pop(int ind)
-        {
-            int obj;
-            if (ind == 0)
-            {
-                obj = head.data;
-                head = head.next;
-                return obj;
-            }
-            Node t = head, pre = null;
-            while (ind > 0 && t != null)
-            {
-                ind--;
-                pre = t;
-                t = t.next;
-            }
+            Node<T> current = head;
+            Node<T> index = null;
+            T temp;
 
-
-            if (ind == 0)
-            {
-                pre.next = t.next;
-                obj = t.data;
-                return obj;
-            }
-            throw new NullReferenceException("index is not range");
-        }
-        public int Size()
-        {
             if (head == null)
-                return 0;
-            Node t = head; int count = 0;
-            while (t != null)
             {
-                count++;
-                t = t.next;
+                return;
             }
-            return count;
+            else
+            {
+                while (current != null)
+                { 
+                    index = current.next;
+
+                    while (index != null)
+                    { 
+                        if (current.data.CompareTo(index.data) > 0)
+                        {
+                            temp = current.data;
+                            current.data = index.data;
+                            index.data = temp;
+                        }
+                        index = index.next;
+                    }
+                    current = current.next;
+                }
+            }
+        }
+        public void display()
+        {  
+            Node<T> current = head;
+            if (head == null)
+            {
+                Console.WriteLine("List is empty");
+                return;
+            }
+            while (current != null)
+            {  
+                Console.Write(current.data + " ");
+                current = current.next;
+            }
+            Console.WriteLine();
         }
     }
 }
