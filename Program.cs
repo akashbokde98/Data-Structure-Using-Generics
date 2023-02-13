@@ -9,9 +9,10 @@ namespace LinkedList
         {
             List listobj = new List();
 
-            listobj.Add(56);
             listobj.Add(70);
-            listobj.Insert(1, 30);
+            listobj.Add(30);
+            listobj.Add(56);
+            listobj.Pop(0);
         }
     }
 }
